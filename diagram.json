@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "Smart Vest - educational simulation",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 14.3, "left": 14.2, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -100,
+      "left": -170,
+      "attrs": { "temperature": "62.2", "humidity": "50" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot",
+      "top": 113.9,
+      "left": -192.2,
+      "attrs": { "value": "500" }
+    },
+    { "type": "wokwi-buzzer", "id": "buzz", "top": -120, "left": 230, "attrs": {} },
+    { "type": "wokwi-led", "id": "red", "top": 80, "left": 250, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "green", "top": 150, "left": 250, "attrs": { "color": "green" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 90, "left": 190, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 160, "left": 190, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "dht:VCC", "esp:3V3", "red", [] ],
+    [ "dht:GND", "esp:GND.1", "black", [] ],
+    [ "dht:SDA", "esp:D15", "green", [] ],
+    [ "pot:VCC", "esp:3V3", "red", [] ],
+    [ "pot:GND", "esp:GND.1", "black", [] ],
+    [ "pot:SIG", "esp:D34", "orange", [] ],
+    [ "buzz:1", "esp:GND.2", "black", [] ],
+    [ "buzz:2", "esp:D18", "purple", [] ],
+    [ "red:A", "r1:2", "red", [] ],
+    [ "r1:1", "esp:D21", "red", [] ],
+    [ "red:C", "esp:GND.2", "black", [] ],
+    [ "green:A", "r2:2", "green", [] ],
+    [ "r2:1", "esp:D19", "green", [] ],
+    [ "green:C", "esp:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
